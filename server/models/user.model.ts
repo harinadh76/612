@@ -24,11 +24,12 @@ const UserSchema = new mongoose.Schema({
     },
     following:{
         type:Array,
-        required:true
+        required:true,
+        trim: true
     },
     profilePic:{
         type:String,
-        required:true
+        // required:true
     }
 })
 
