@@ -1,4 +1,6 @@
+
 import mongoose, {Schema,Model,model, Types} from "mongoose"
+
 
 export interface IUser extends Document{
     username: String,
@@ -11,6 +13,11 @@ export interface IUser extends Document{
 }
 
 const UserSchema : Schema = new Schema({
+=======
+    profilePic: String
+}
+
+const UserSchema = new mongoose.Schema({
     username:{
         type:String,
         required:true
@@ -41,6 +48,13 @@ const UserSchema : Schema = new Schema({
     }
 },{
     timestamps:true
+=======
+        required:true
+    },
+    profilePic:{
+        type:String,
+        required:true
+    }
 })
 
 export const User: Model<IUser> = model<IUser>('UserModel', UserSchema)
