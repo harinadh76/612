@@ -1,0 +1,71 @@
+<body>
+  <div class="buttons">
+    <button (pageValue)="(login)" (click)="pageValueChange(login)">
+      Login
+    </button>
+    <button (click)="pageValueChange(register)">Register</button>
+  </div>
+
+  <form [formGroup]="reactiveForm" (ngSubmit)="registerLoginUser()">
+    <ng-template [ngIf]="pageValue == 'login'">
+      <div class="login-box">
+        <h2>Login</h2>
+        <div class="user-box">
+          <input type="text" formControlName="userName" />
+          <label>Username</label>
+        </div>
+        <div class="user-box">
+          <input type="password" formControlName="password" />
+          <label>Password</label>
+        </div>
+        <a href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </a>
+        <!-- <input type="submit" value="Submit" /> -->
+      </div>
+    </ng-template>
+    <ng-template [ngIf]="pageValue == 'register'">
+      <ng-template [ngIf]="pageValue == 'register'">
+        <div class="login-box">
+          <h2>Register</h2>
+              <div class="user-box">
+                <input type="text" formControlName="userName">
+                <label>Username</label>
+              </div>
+              <!-- //dob county gender -->
+              <div class="user-box">
+                <input type="email" id="email" formControlName="email">
+                <label>Email</label>
+              </div>
+              <div class="user-box">
+                <input type="password" formControlName="password">
+                <label>Password</label>
+              </div>
+              <label style="color: aliceblue;">DOB</label>
+              <input type="date" value="birth date" formControlName="dob">
+              <label for="gender">Gender</label>
+              <select name="gender" formControlName="gender">
+                <option value="male">male</option>
+                <option value="female">female</option>
+                <option value="others">others</option>
+              </select>
+
+              <a href="#" >
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <!-- <button>Submit</button> -->
+                Submit
+              </a>
+              
+            </div>
+          </ng-template>
+        </ng-template>
+        <input type="submit" value="submit" />
+  </form>
+</body>
