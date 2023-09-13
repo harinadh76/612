@@ -1,10 +1,10 @@
-import mongoose, {Schema,Model,model, Types} from "mongoose"
+import {Schema,Model,model, Types} from "mongoose"
 
 export interface IUser extends Document{
     username: String,
     email: String,
     password: String,
-    following: Array<String>,
+    following: Array<String | Types.ObjectId >,
     profilePic: String,
     gender: String,
     dob:Date,

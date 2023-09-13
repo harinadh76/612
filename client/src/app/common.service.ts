@@ -7,13 +7,18 @@ import {HttpClient} from '@angular/common/http'
 })
 export class CommonService {
 
-  constructor(private http : HttpClient) { }
+  constructor(protected http : HttpClient) { }
+  apiUrl='http://localhost:3000'
   
-  signup(data){
-    this.http.post('/signup',data.value).subscribe((response)=>{
+  signup(data : any){
+    console.log("working")
+    //
+    this.http.post(`${this.apiUrl}/api/signup`,data.value).subscribe((response)=>{
       console.log("signup succesfull",response);
-    },(error)=>{
-      console.log("signing up failed",error);
-    })
+    }
+    // ,(error)=>{
+    //   console.log("signing up failed",error);
+    // }
+    )
   }
 }

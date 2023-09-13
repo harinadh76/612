@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonService } from './common.service';
+import {HttpClientModule} from '@angular/common/http'
+
 
 @NgModule({
   declarations: [
@@ -14,9 +17,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
