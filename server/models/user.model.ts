@@ -1,15 +1,16 @@
-const mongoose = require('mongoose')
-import {Model, model, Schema, Types, Document} from "mongoose"
+import {Schema,Model,model, Types} from "mongoose"
 
 export interface IUser extends Document{
     username: String,
     email: String,
     password: String,
-    following: Array<String>,
-    profilePic: String
+    following: Array<String | Types.ObjectId >,
+    profilePic: String,
+    gender: String,
+    dob:Date,
 }
 
-const UserSchema = new mongoose.Schema({
+const UserSchema : Schema = new Schema({
     username:{
         type:String,
         required:true,
@@ -25,13 +26,22 @@ const UserSchema = new mongoose.Schema({
     },
     following:{
         type:Array,
-        required:true,
+        // required:true,
         trim: true
     },
     profilePic:{
         type:String,
         // required:true
+    },
+    gender:{
+        type:String,
+        require:true,
+    },
+    dob:{
+        type:Date,
     }
+},{
+    timestamps:true
 })
 
 export const User: Model<IUser> = model<IUser>('UserModel', UserSchema)
